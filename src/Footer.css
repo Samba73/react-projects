@@ -1,0 +1,12 @@
+footer {
+    width: 100%;
+    padding: 0.25em;
+    background-color: lightgrey;
+    color: white;
+    display: grid;
+    place-content: end;
+    position: absolute;
+    bottom: 0;
+    height: 1.75rem;
+    margin-top: auto;
+  }
