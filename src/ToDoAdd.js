@@ -1,10 +1,10 @@
 import React from 'react'
-import { FaTrash } from 'react-icons/fa';
+import Items from './Items';
 import { CgAddR } from 'react-icons/cg';
 import './Content.css'
 
 
-const Content = () => {
+const ToDoAdd = () => {
     // const [todo, settodo] = React.useState('')
     // const [todos, settodos] = React.useState([])
     const [todocount, settodocount] = React.useState([])
@@ -57,20 +57,18 @@ function handleSelection(id) {
             <h2>
                 Available ToDo's are...
             </h2>
-            <ul>
-                {items && items.length > 0 ? items.map((item) => 
-                    <li className='item' key={item.id}>
-                        <input type="checkbox" checked={item.ischecked} onChange={(event)=> handleSelection(item.id)}/>
-                        <label 
-                        style={(item.ischecked)? {textDecoration: 'line-through'}: null}
-                        onDoubleClick={(event)=> handleSelection(item.id)}>{item.title}</label>
-                        <button onClick={()=>handleRemoveItem(item.id)}><FaTrash role="button" tabIndex="0"/></button>
-                    </li>
-                ): <p><h2>Your ToDo list is empty</h2></p>}
-            </ul>
+            {(items && items.length > 0) ? 
+            (
+                <Items 
+                    items = {items}
+                    handleSelection = {handleSelection}
+                    handleRemoveItem = {handleRemoveItem}
+
+                />
+            ): <p><h2>Your ToDo list is empty</h2></p>}         
         </p>
         </main>
   )
 }
 
-export default Content
+export default ToDoAdd
