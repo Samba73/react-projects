@@ -16,9 +16,9 @@
     width: 2.5rem;
     width: 48px;
     min-width: 48px;
-    height: 2.5rem;
-    height: 48px;
-    min-height: 48px;
+    height: 1.5rem;
+    height: 28px;
+    min-height: 28px;
     cursor: pointer;
     margin-right: 0.5rem;
   }
@@ -35,7 +35,7 @@
   .item svg {
     width: 48px;
     min-width: 48px;
-    height: 36px;
+    height: 26px;
     font-size: 1rem;
     color: steelblue;
     cursor: pointer;
