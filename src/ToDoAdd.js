@@ -13,6 +13,7 @@ const ToDoAdd = () => {
 
 
 function handleAddItem(){
+    if (!todo) return
     const listItems = [{
         id: todocount+1,
         checked: false,
@@ -48,7 +49,7 @@ function handleSelection(id) {
         <div>
             <ul>
                 <li className="new">
-                    <input type='text' value = {todo} onChange={(event) => handleItemEntry(event)}/>
+                    <input type='text' placeholder='Add ToDo Item' value = {todo} onChange={(event) => handleItemEntry(event)}/>
                     <button onClick={handleAddItem}><CgAddR role="button" tabIndex="0"/></button>
                 </li>
             </ul>
