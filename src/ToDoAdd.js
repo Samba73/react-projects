@@ -7,8 +7,8 @@ import './Content.css'
 const ToDoAdd = () => {
     // const [todo, settodo] = React.useState('')
     // const [todos, settodos] = React.useState([])
-    const [todocount, settodocount] = React.useState([])
-    const [items, setItems] = React.useState([])
+    const [todocount, settodocount] = React.useState(JSON.parse(localStorage.getItem('todo_list')).length)
+    const [items, setItems] = React.useState(JSON.parse(localStorage.getItem('todo_list')))
     const [todo, settodo] = React.useState('')
 
 
@@ -20,7 +20,9 @@ function handleAddItem(){
         title: todo
     }]
     //console.log(listItems)
-    setItems([...items, ...listItems])
+    const updatedItems = [...items, ...listItems]
+    setItems(updatedItems)
+    localStorage.setItem('todo_list',JSON.stringify(updatedItems))
     //console.log(items)
     settodocount(+todocount+1)
     settodo('')
@@ -36,12 +38,14 @@ function handleRemoveItem(id){
     //alert(id)
     let listItems = items.filter(item => item.id !== id)
     setItems(listItems)
+    localStorage.setItem('todo_list', JSON.stringify(listItems))
 }
 function handleSelection(id) {
     const listItems = items.map((item) => 
         item.id === id ? {...item, ischecked:!item.ischecked} : item
     )
     setItems(listItems)
+    localStorage.setItem('todo_list', JSON.stringify(listItems))
 }
   return (
         <main className='main'>
