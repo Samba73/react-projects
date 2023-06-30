@@ -14,6 +14,6 @@ const Header = (props) => {
 }
 
 Header.defaultProps = {
-  title: 'Anonymous'
+  title: 'Trial'
 }
 export default Header
