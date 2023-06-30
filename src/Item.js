@@ -9,7 +9,7 @@ function Item({item, handleSelection, handleRemoveItem}) {
         <label 
         style={(item.ischecked)? {textDecoration: 'line-through'}: null}
         onDoubleClick={(event)=> handleSelection(item.id)}>{item.title}</label>
-        <button onClick={()=>handleRemoveItem(item.id)}><FaTrash role="button" tabIndex="0"/></button>
+        <button onClick={()=>handleRemoveItem(item.id)}><FaTrash role="button" tabIndex="0" aria-label={`Delete ${item.item}`}/></button>
     </li>
   )
 }
