@@ -4,7 +4,7 @@ import './Items.css'
 
 function Item({item, handleSelection, handleRemoveItem}) {
   return (
-    <li className='item' key={item.id}>
+    <li className='item'>
         <input type="checkbox" checked={item.ischecked} onChange={(event)=> handleSelection(item.id)}/>
         <label 
         style={(item.ischecked)? {textDecoration: 'line-through'}: null}
