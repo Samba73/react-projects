@@ -4,14 +4,15 @@ import { CgAddR } from 'react-icons/cg';
 import './Content.css'
 
 
-const ToDoAdd = () => {
+const ToDoAdd = ({todoCount, allItems}) => {
     // const [todo, settodo] = React.useState('')
     // const [todos, settodos] = React.useState([])
-    const [todocount, settodocount] = React.useState(JSON.parse(localStorage.getItem('todo_list')).length)
-    const [items, setItems] = React.useState(JSON.parse(localStorage.getItem('todo_list')))
+    const [todocount, settodocount] = React.useState(todoCount)
+    const [items, setItems] = React.useState(allItems)
     const [todo, settodo] = React.useState('')
 
-
+    //console.log('todoCount from App', todoCount)
+    //console.log('items from App', allItems)
 function handleAddItem(){
     if (!todo) return
     const listItems = [{
