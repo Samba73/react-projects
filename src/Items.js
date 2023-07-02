@@ -9,6 +9,7 @@ function Items({items, handleSelection, handleRemoveItem}) {
         {items.map((item) => 
             <Item
                 item = {item}
+                key = {item.id}
                 handleSelection = {handleSelection}
                 handleRemoveItem = {handleRemoveItem}
             />

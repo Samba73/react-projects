@@ -1,7 +1,9 @@
 import React from 'react'
 import Items from './Items';
+import Search from './Search';
 import { CgAddR } from 'react-icons/cg';
 import './Content.css'
+import './Search.css'
 
 
 const ToDoAdd = ({todoCount, allItems}) => {
@@ -10,9 +12,14 @@ const ToDoAdd = ({todoCount, allItems}) => {
     const [todocount, settodocount] = React.useState(todoCount)
     const [items, setItems] = React.useState(allItems)
     const [todo, settodo] = React.useState('')
+    const [search, setSearch] = React.useState('')
+
 
     //console.log('todoCount from App', todoCount)
     //console.log('items from App', allItems)
+
+
+
 function handleAddItem(){
     if (!todo) return
     const listItems = [{
@@ -55,8 +62,12 @@ function handleSelection(id) {
             <ul>
                 <li className="new">
                     <input type='text' placeholder='Add ToDo Item' value = {todo} onChange={(event) => handleItemEntry(event)}/>
-                    <button onClick={handleAddItem}><CgAddR role="button" tabIndex="0"/></button>
+                    <button onClick={handleAddItem}><CgAddR role="button" tabIndex="0"/></button>  
                 </li>
+                <Search
+                    Search={search}
+                    setSearch={setSearch} 
+                />
             </ul>
         </div>
         <p>
@@ -66,7 +77,7 @@ function handleSelection(id) {
             {(items && items.length > 0) ? 
             (
                 <Items 
-                    items = {items}
+                    items = {items.filter(item => (item.title).includes(search))}
                     handleSelection = {handleSelection}
                     handleRemoveItem = {handleRemoveItem}
 
