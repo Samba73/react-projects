@@ -7,6 +7,7 @@ function App() {
   const [Hexvalue, setHexvalue] = React.useState('')
   const [Textvalue, setTextvalue] = React.useState('black')
 
+  const display = Color + '\n' +  Hexvalue
   const colorpattern = 
     {
       red: '#FF0000',
@@ -36,7 +37,7 @@ function App() {
       <p>
       <textarea
         style = {{backgroundColor: Hexvalue, color: Textvalue}}
-        value = {Color}
+        value = {display}
       /></p>
       <p>
       <input
