@@ -77,7 +77,7 @@ function handleSelection(id) {
             {(items && items.length > 0) ? 
             (
                 <Items 
-                    items = {items.filter(item => (item.title).includes(search))}
+                    items = {items.filter(item => (item.title.toLowerCase()).includes(search.toLowerCase()))}
                     handleSelection = {handleSelection}
                     handleRemoveItem = {handleRemoveItem}
 
