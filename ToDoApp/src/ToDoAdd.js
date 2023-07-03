@@ -18,7 +18,7 @@ const ToDoAdd = ({todoCount, allItems}) => {
     //console.log('todoCount from App', todoCount)
     //console.log('items from App', allItems)
 
-
+    const inputRef = React.useRef()
 
 function handleAddItem(){
     if (!todo) return
@@ -34,6 +34,7 @@ function handleAddItem(){
     //console.log(items)
     settodocount(+todocount+1)
     settodo('')
+    inputRef.current.focus()
 }  
 
 function handleItemEntry(event){
@@ -55,13 +56,14 @@ function handleSelection(id) {
     setItems(listItems)
     localStorage.setItem('todo_list', JSON.stringify(listItems))
 }
+
   return (
         <main className='main'>
         <p>Welcome to ToDo App. You have total {todocount} ToDo's</p>
         <div>
             <ul>
                 <li className="new">
-                    <input type='text' placeholder='Add ToDo Item' value = {todo} onChange={(event) => handleItemEntry(event)}/>
+                    <input type='text' autoFocus ref = {inputRef} placeholder='Add ToDo Item' value = {todo} onChange={(event) => handleItemEntry(event)}/>
                     <button onClick={handleAddItem}><CgAddR role="button" tabIndex="0"/></button>  
                 </li>
                 <Search

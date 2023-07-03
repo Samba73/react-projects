@@ -92,7 +92,16 @@ main {
     margin-right: 0.5rem;
   }
   
-  
+  .new button {
+    color: steelblue;
+    cursor: pointer;
+  }
+
+  .new button:focus,
+  .new button:hover {
+    background-color: limegreen;
+    outline: none;
+  }
   .new svg {
     width: 48px;
     min-width: 48px;
@@ -104,6 +113,6 @@ main {
   
   .new svg:focus, 
   .new svg:hover {
-    color: green;
+    color: white;
     outline: none;
   }
