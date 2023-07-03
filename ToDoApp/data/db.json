@@ -1,0 +1,19 @@
+{
+    "items":[
+        {
+            "id": 1,
+            "checked": false,
+            "title": "Stretch everyday" 
+        },
+        {
+            "id": 2,
+            "checked": true,
+            "title": "Breakfast is must everyday"
+        },
+        {
+            "id": 3,
+            "checked": false,
+            "title": "Study everyday"
+        }
+    ]
+}
