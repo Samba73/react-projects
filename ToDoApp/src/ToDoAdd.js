@@ -19,13 +19,13 @@ export default function ToDoAdd () {
 
     async function handleAddItem(){
         if (!todo) return
-        const listItems = {
+        const listItem = {
             id: todocount+1,
             checked: false,
             title: todo
         }
         //console.log(listItems)
-        const updatedItems = [...items, listItems]
+        const updatedItems = [...items, listItem]
         setItems(updatedItems)
         //localStorage.setItem('todo_list',JSON.stringify(updatedItems))
         //console.log(items)
@@ -33,17 +33,17 @@ export default function ToDoAdd () {
         settodo('')
         inputRef.current.focus()
 
-        const addItem = Requests(API_URL, {
+        const addItem = await Requests(API_URL, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(listItems)
+            body: JSON.stringify(listItem)
         } )
         if(addItem) {
             setFetchError(addItem)
         }
-        await fetchItems()
+        //await fetchItems()
     }  
     
 
@@ -53,13 +53,13 @@ export default function ToDoAdd () {
         //event.target.value = ""
         
     }
-    function handleRemoveItem(id){
+    async function handleRemoveItem(id) {
         //alert(id)
         let listItems = items.filter(item => item.id !== id)
         setItems(listItems)
         settodocount(listItems.length)
 
-        const removeItem = Requests(`API_URL/${id}`, {
+        const removeItem = await Requests(`${API_URL}/${id}`, {
             method: "DELETE"
         })
         if (removeItem) {
@@ -67,24 +67,33 @@ export default function ToDoAdd () {
         }
 
     }
-    function handleSelection(id) {
-        const listItems = items.map((item) => 
+    async function handleSelection(id) {
+        const listItem = items.map((item) => 
             item.id === id ? {...item, checked:!item.checked} : item
         )
-        setItems(listItems)
+        setItems(listItem)
+        console.log(listItem)
+        const selectedItem = listItem.filter((item) => item.id === id)
+        console.log(selectedItem)
+        const selectItem = await Requests(`${API_URL}/${id}` , {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({checked:selectedItem[0].checked})
+        })
+        if (selectItem) {
+            setFetchError(selectItem)
+        }
    
     }
-
     const fetchItems = async () => {
         try {
             const response = await fetch(API_URL)
-            console.log(response)
             if (response.status === 200) {
                 const listItems = await response.json()
-                console.log('listitems',listItems)
                 setItems(listItems)
                 settodocount(listItems.length)
-                console.log('item', items)
                 setFetchError(null)
             } else {
                 throw new Error('No Data Retrieved')
@@ -101,6 +110,7 @@ export default function ToDoAdd () {
     React.useEffect(()=>{
         setTimeout(() => {
             fetchItems();
+            //handleAddItem();
         },2000)
         },[])
 
@@ -134,7 +144,6 @@ return (
                         <h2>Available ToDo's are...</h2>
                         {items && items.length > 0 ? (
                         <Items
-                            key = {items.length}
                             items={items.filter(item =>
                             item.title.toLowerCase().includes(search.toLowerCase())
                             )}
