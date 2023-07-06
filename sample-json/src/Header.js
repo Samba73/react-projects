@@ -7,12 +7,13 @@ function Header() {
   const [btnselect, setBtnSelect] = React.useState('users')
   const [errors, setErrors] = React.useState([])
   const [items, setItems] = React.useState([])
-  
-  async function handleUsers(e){
+
+  async function handleItems(e){
+    console.log('e value', e.target.value)
     setBtnSelect(e.target.value)
-    console.log(btnselect)
+    console.log('btnselect', btnselect)
     try {
-      const response = await fetch(`${API_URL}/users`)
+      const response = await fetch(`${API_URL}/${btnselect}`)
       console.log(response)
       if (response.status === 200) {
         const data = await response.json()
@@ -24,43 +25,7 @@ function Header() {
     } catch (e) {
       setErrors(e.message)
     } finally {
-      setBtnSelect(null)
-    }
-  }  
-  async function handlePosts(e){
-    setBtnSelect(e.target.value)
-    console.log('posts', e.target.value)
-    try {
-      const response = await fetch(`${API_URL}/posts`)
-      if (response.status === 200) {
-        const data = await response.json()
-        setItems(data)
-        console.log('posts',items)
-      } else {
-        throw new Error ('Posts Data Load: Error Occured')
-      }
-    } catch (e) {
-      setErrors(e.message)
-    } finally {
-      setBtnSelect(null)
-    }
-  }
-  async function handleComments(e){
-    console.log('comments', e.target.value)
-    setBtnSelect(e.target.value)
-    try {
-      const response = await fetch(`${API_URL}/comments`)
-      if (response.status === 200) {
-        const data = await response.json()
-        setItems(data)
-        console.log('comments', items)
-      } else {
-        throw new Error ('Comments Data Load: Error Occured')
-      }
-    } catch (e) {
-      setErrors(e.message)
-    } finally {
-      setBtnSelect(null)
+      //setBtnSelect(null)
     }
   }
   
@@ -68,9 +33,9 @@ function Header() {
     <main className='main'>
       <ul>
         <li className='new'>
-          <button value='users' onClick={(event)=>handleUsers(event)}>Users</button>
-          <button value='posts' onClick={(event)=>handlePosts(event)}>Posts</button>
-          <button value='comments' onClick={(event)=>handleComments(event)}>Comments</button>
+          <button value='users' onClick={(event)=>handleItems(event)}>Users</button>
+          <button value='posts' onClick={(event)=>handleItems(event)}>Posts</button>
+          <button value='comments' onClick={(event)=>handleItems(event)}>Comments</button>
         </li>
       </ul>
        <Display
