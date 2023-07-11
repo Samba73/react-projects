@@ -20,7 +20,7 @@ const Input = ({ colorValue, setColorValue, setHexValue,
         />
         <button
             type="button"
-            onClick={()=> setIsDarkText(!isDarkText)}
+            onClick={()=>setIsDarkText(!isDarkText)}
         > Toggle Text Color
         </button>    
 
