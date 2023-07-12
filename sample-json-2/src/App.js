@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './Form';
-import ListItems from './ListItems';
+// import ListItems from './ListItems';
+import Table from './Table';
 import './App.css';
 
 function App() {
@@ -31,7 +32,10 @@ function App() {
         reqType={reqType}
         setReqType={setReqType}
       />  
-      <ListItems
+      {/* <ListItems
+        items={items}
+      />   */}
+      <Table
         items={items}
       />  
     </div>
