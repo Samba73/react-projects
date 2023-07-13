@@ -1,0 +1,46 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "My First Post",
+      "datetime": "March 01, 2023 11:17:36 AM",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis consequatur expedita, assumenda similique non optio! Modi nesciunt excepturi corrupti atque blanditiis quo nobis, non optio quae possimus illum exercitationem ipsa!"
+    },
+    {
+      "id": 2,
+      "title": "My 2nd Post",
+      "datetime": "March 01, 2023 11:17:36 AM",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis consequatur expedita, assumenda similique non optio! Modi nesciunt excepturi corrupti atque blanditiis quo nobis, non optio quae possimus illum exercitationem ipsa!"
+    },
+    {
+      "id": 3,
+      "title": "My 3rd Post",
+      "datetime": "March 01, 2023 11:17:36 AM",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis consequatur expedita, assumenda similique non optio! Modi nesciunt excepturi corrupti atque blanditiis quo nobis, non optio quae possimus illum exercitationem ipsa!"
+    },
+    {
+      "id": 4,
+      "title": "My Fourth Post",
+      "datetime": "March 01, 2021 11:17:36 AM",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis consequatur expedita, assumenda similique non optio! Modi nesciunt excepturi corrupti atque blanditiis quo nobis, non optio quae possimus illum exercitationem ipsa!"
+    },
+    {
+      "id": 5,
+      "title": "test with axios",
+      "datetime": "July 13, 2023 3:23:41 PM",
+      "body": "testing new post with axios"
+    },
+    {
+      "id": 6,
+      "title": "another sample to edit",
+      "datetime": "July 13, 2023 8:09:12 PM",
+      "body": "another post to test if the same error persists. its working"
+    },
+    {
+      "id": 7,
+      "title": "where is the error?",
+      "datetime": "July 13, 2023 8:01:25 PM",
+      "body": "Where are you? hello"
+    }
+  ]
+}
