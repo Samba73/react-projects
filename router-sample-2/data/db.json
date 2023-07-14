@@ -38,9 +38,15 @@
     },
     {
       "id": 7,
-      "title": "where is the error?",
-      "datetime": "July 13, 2023 8:01:25 PM",
-      "body": "Where are you? hello"
+      "title": "where is the error? show me",
+      "datetime": "July 14, 2023 4:37:17 PM",
+      "body": "Where are you? hello show me the error"
+    },
+    {
+      "id": 8,
+      "title": "new post 14july",
+      "datetime": "July 14, 2023 10:35:10 AM",
+      "body": "created on 14 july"
     }
   ]
 }
